@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <title>CREATE TRIP</title>
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav__header">
+            <div class="logo nav__logo">
+                <a href="admin_page.html">SVN8<span>TEAM</span></a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+                <span><i class="ri-menu-line"></i></span>
+            </div>
+        </div>
+
+        <ul class="nav__links" id="nav-links">
+            <li><a href="admin_vehicle.html">Vehicle</a></li>
+            <li><a href="admin_driver.html">Driver</a></li>
+            <li><a href="admin_trip.html">Trip</a></li>
+            <li><a href="admin_report.html">Team report</a></li>
+        </ul>
+
+        <a href="/login_role.html">
+            <div class="nav__btn">
+              <button class="btn"><i class="ri-user-line"></i></button>
+            </div>
+          </a>
+    </nav>
+    <header class="section__container header__container" id="home">
+        <div class="header__image">
+            <img src="assets/landing_page/img/header.png" alt="header" />
+        </div>
+        <div class="header__content">
+            <h1>Trip Monitoring</h1>
+        </div>
+    </header>
+    <section class="section__container special__container" id="special">
+        <h2 class="section__header">Create a new trip:</h2>
+    </section>
+
+    <div class="container">
+        <form action="#">
+            <div class="formfirst">
+                <div class="details">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Driver ID:</label>
+                            <input type="text" placeholder="Enter Driver ID">
+                        </div>
+                        <div class="input-field">
+                            <label>Vehicle ID:</label>
+                            <input type="text" placeholder="Enter Vehicle ID">
+                        </div>
+                        <div class="input-field">
+                            <label>Departure time:</label>
+                            <input type="date" placeholder="Enter Departure time:">
+                        </div>
+                        <div class="input-field">
+                            <label>Arrival time:</label>
+                            <input type="date" placeholder="Enter Arrival time">
+                        </div>
+                        <div class="input-field">
+                            <label>Departure:</label>
+                            <input type="text" placeholder="Enter Departure">
+                        </div>
+                        <div class="input-field">
+                            <label>Destination:</label>
+                            <input type="text" placeholder="Enter Destination">
+                        </div>
+                        <div class="input-field">
+                            <label>Fuel cpst:</label>
+                            <input type="text" placeholder="Enter Fuel cost">
+                        </div>
+                    </div>
+                    <button class="nextBtn">
+                            <span class="btnNext">Save</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <footer class="footer" id="contact">
+        <div class="footer__bar">
+            Copyright © 2024 SVN8. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <title>SVN8 DRIVER</title>
+
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        //ajax row data
+        var ajax_data =
+            [
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", },
+                { fullname: "Nguyen Van A", address: "#", phoneNumber: "0123456789", yearOfExperience: "5", identityCardNumber: "01234567", driverLicenseNumber: "0123456789", driverLicenseClass: "C", }
+            ]
+
+        var random_id = function () {
+            var id_num = Math.random().toString(9).substr(2, 3);
+            var id_str = Math.random().toString(36).substr(2);
+            return id_num + id_str;
+        }
+
+        //--->create data table > start
+        var tbl = '';
+        tbl += '<table class="table table-hover">'
+
+        //--->create table header > start
+        tbl += '<thead>';
+        tbl += '<tr>';
+        tbl += '<th>Full Name</th>';
+        tbl += '<th>Address</th>';
+        tbl += '<th>Phone number</th>';
+        tbl += '<th>Year of experience</th>';
+        tbl += '<th>Identity card number</th>';
+        tbl += '<th>Driver license number</th>';
+        tbl += '<th>Driver license class</th>';
+
+        tbl += '</tr>';
+        tbl += '</thead>';
+        //--->create table header > end
+
+
+        //--->create table body > start
+        tbl += '<tbody>';
+
+        //--->create table body rows > start
+        $.each(ajax_data, function (index, val) {
+            //you can replace with your database row id
+            var row_id = random_id();
+
+            //loop through ajax row data
+            tbl += '<tr row_id="' + row_id + '">';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="fullname">' + val['fullname'] + '</div></td>';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="address">' + val['address'] + '</div></td>';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="phoneNumber">' + val['phoneNumber'] + '</div></td>';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="yearOfExperience">' + val['yearOfExperience'] + '</div></td>';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="identityCardNumber">' + val['identityCardNumber'] + '</div></td>';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="driverLicenseNumber">' + val['driverLicenseNumber'] + '</div></td>';
+            tbl += '<td ><div class="row_data" edit_type="click" col_name="driverLicenseClass">' + val['driverLicenseClass'] + '</div></td>';
+        });
+
+        //--->create table body rows > end
+
+        tbl += '</tbody>';
+        //--->create table body > end
+
+        tbl += '</table>'
+        //--->create data table > end
+
+        //--->add new row
+
+        //out put table data
+        $(document).find('.tbl_user_data').html(tbl);
+        $(document).find('.btn_save').hide();
+        $(document).find('.btn_cancel').hide();
+        $(document).find('.btn_delete').hide();
+
+        //--->save single field data > start
+        $(document).on('focusout', '.row_data', function (event) {
+            event.preventDefault();
+
+            if ($(this).attr('edit_type') == 'button') {
+                return false;
+            }
+
+            var row_id = $(this).closest('tr').attr('row_id');
+
+            var row_div = $(this)
+                .removeClass('bg-warning') //add bg css
+                .css('padding', '')
+
+            var col_name = row_div.attr('col_name');
+            var col_val = row_div.html();
+
+            var arr = {};
+            arr[col_name] = col_val;
+
+            //use the "arr"	object for your ajax call
+            $.extend(arr, { row_id: row_id });
+
+            //out put to show
+            $('.post_msg').html('<pre class="bg-success">' + JSON.stringify(arr, null, 2) + '</pre>');
+
+        })
+        //--->save single field data > end
+
+
+        //--->button > edit > start	
+        $(document).on('click', '.btn_edit', function (event) {
+            event.preventDefault();
+            var tbl_row = $(this).closest('tr');
+
+            var row_id = tbl_row.attr('row_id');
+
+            tbl_row.find('.btn_save').show();
+            tbl_row.find('.btn_cancel').show();
+
+            //hide edit button
+            tbl_row.find('.btn_edit').hide();
+
+            //make the whole row editable
+            tbl_row.find('.row_data')
+                .attr('contenteditable', 'true')
+                .attr('edit_type', 'button')
+                .addClass('bg-warning')
+                .css('padding', '3px')
+
+            //--->add the original entry > start
+            tbl_row.find('.row_data').each(function (index, val) {
+                //this will help in case user decided to click on cancel button
+                $(this).attr('original_entry', $(this).html());
+            });
+            //--->add the original entry > end
+
+        });
+        //--->button > edit > end
+
+
+        //--->button > cancel > start	
+        $(document).on('click', '.btn_cancel', function (event) {
+            event.preventDefault();
+
+            var tbl_row = $(this).closest('tr');
+
+            var row_id = tbl_row.attr('row_id');
+
+            //hide save and cacel buttons
+            tbl_row.find('.btn_save').hide();
+            tbl_row.find('.btn_cancel').hide();
+
+            //show edit button
+            tbl_row.find('.btn_edit').show();
+
+            //make the whole row editable
+            tbl_row.find('.row_data')
+                .attr('edit_type', 'click')
+                .removeClass('bg-warning')
+                .css('padding', '')
+
+            tbl_row.find('.row_data').each(function (index, val) {
+                $(this).html($(this).attr('original_entry'));
+            });
+        });
+        //--->button > cancel > end
+
+
+        //--->save whole row entery > start	
+        $(document).on('click', '.btn_save', function (event) {
+            event.preventDefault();
+            var tbl_row = $(this).closest('tr');
+
+            var row_id = tbl_row.attr('row_id');
+
+
+            //hide save and cacel buttons
+            tbl_row.find('.btn_save').hide();
+            tbl_row.find('.btn_cancel').hide();
+
+            //show edit button
+            tbl_row.find('.btn_edit').show();
+
+
+            //make the whole row editable
+            tbl_row.find('.row_data')
+                .attr('edit_type', 'click')
+                .removeClass('bg-warning')
+                .css('padding', '')
+
+            //--->get row data > start
+            var arr = {};
+            tbl_row.find('.row_data').each(function (index, val) {
+                var col_name = $(this).attr('col_name');
+                var col_val = $(this).html();
+                arr[col_name] = col_val;
+            });
+            //--->get row data > end
+
+            //use the "arr"	object for your ajax call
+            $.extend(arr, { row_id: row_id });
+
+
+
+        });
+    }); 
+</script>
+
+<body>
+    <nav>
+        <div class="nav__header">
+            <div class="logo nav__logo">
+                <a href="user_page.html">SVN8<span>TEAM</span></a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+                <span><i class="ri-menu-line"></i></span>
+            </div>
+        </div>
+
+        <ul class="nav__links" id="nav-links">
+            <li><a href="user_vehicle.html">Vehicle</a></li>
+            <li><a href="user_driver.html">Driver</a></li>
+            <li><a href="user_trip.html">Trip</a></li>
+            <li><a href="user_report.html">Team report</a></li>
+        </ul>
+
+        <a href="/login_role.html">
+            <div class="nav__btn">
+              <button class="btn"><i class="ri-user-line"></i></button>
+            </div>
+          </a>
+    </nav>
+
+    <header class="section__container header__container" id="home">
+        <div class="header__image">
+            <img src="assets/landing_page/img/header.png" alt="header" />
+        </div>
+        <div class="header__content">
+            <h1>Team's Driver</h1>
+        </div>
+    </header>
+    <section class="section__container special__container" id="special">
+        <h2 class="section__header">List of drivers in team</h2>
+    </section>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="tbl_user_data"></div>
+        </div>
+    </div>
+
+    <footer class="footer" id="contact">
+        <div class="footer__bar">
+            Copyright © 2024 SVN8. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
