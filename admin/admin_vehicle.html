@@ -48,7 +48,7 @@
         tbl += '<th>Dimension</th>';
         tbl += '<th>Load Capacity</th>';
         tbl += '<th>Fuel Type</th>';
-        tbl += '<th>Vehicle Cose</th>';
+        tbl += '<th>Vehicle Cost</th>';
 
         tbl += '</tr>';
         tbl += '</thead>';
@@ -100,7 +100,8 @@
 
         //--->add new row
         tbl += '<div class="text-center">';
-        tbl += '<span class="btn btn-primary btn_new_row"> Add New Vehicle </span>';
+        tbl += '<a href="admin_vehicle_add.html" class="btn btn-primary btn_new_row"> Add New Vehicle </a>';
+
         //out put table data
         $(document).find('.tbl_user_data').html(tbl);
         $(document).find('.btn_save').hide();
@@ -254,11 +255,13 @@
             <li><a href="admin_report.html">Team report</a></li>
         </ul>
 
-        <a href="/login_role.html">
-            <div class="nav__btn">
-              <button class="btn"><i class="ri-user-line"></i></button>
+        <a href="/index.html">
+            <div class="explore__btn">
+                <button class="btn">
+                    Log Out <span><i class="ri-arrow-right-line"></i></span>
+                </button>
             </div>
-          </a>
+        </a>
     </nav>
 
     <header class="section__container header__container" id="home">

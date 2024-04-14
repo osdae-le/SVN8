@@ -67,6 +67,7 @@
 img {
   display: flex;
   width: 100%;
+  z-index: 0;
 }
 
 a {
@@ -584,20 +585,20 @@ nav {
   justify-content: space-between;
 }
 
-form .fields .input-field{
+form .fields .input-field {
   display: flex;
   width: calc(100%/2-15px);
   flex-direction: column;
   margin: 4px 0;
 }
 
-.input-field label{
+.input-field label {
   font-size: 12px;
   font-weight: 500;
   color: var(--text-dark);
 }
 
-.input-field input{
+.input-field input {
   outline: none;
   font-size: 14px;
   font-weight: 400;
@@ -608,15 +609,15 @@ form .fields .input-field{
   margin: 8px 0;
 }
 
-.input-field input:is(:focus, :valid){
+.input-field input:is(:focus, :valid) {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 
-.input-field input[type="date"]{
+.input-field input[type="date"] {
   color: var(--primary-color-light);
 }
 
-.container form button{
+.container form button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -629,11 +630,12 @@ form .fields .input-field{
   background: var(--text-dark);
   cursor: pointer;
 }
-form button:hover{
+
+form button:hover {
   background-color: #ff465c;
 }
 
-.details{
+.details {
   align-items: center;
 }
 
