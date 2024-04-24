@@ -84,3 +84,8 @@ const swiper = new Swiper(".swiper", {
     el: ".swiper-pagination",
   },
 });
+
+let subMenu = document.getElementById("subMenu");
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}

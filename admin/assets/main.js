@@ -89,3 +89,7 @@ function togglePopup() {
   document.getElementById("popup-1").classList.toggle("active");
 }
 
+let subMenu = document.getElementById("subMenu");
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
