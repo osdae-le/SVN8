@@ -478,3 +478,17 @@ nav {
     gap: 2rem;
   }
 }
+
+
+.maintenance_tbl {
+  text-align: left; /* Align the table content to the left */
+}
+
+.back-to-page p{
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.table-wrap p{
+  text-align: center;
+}

@@ -18,16 +18,10 @@
         //ajax row data
         var ajax_data =
             [
-                { vehicleType: "Truck", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "1000" },
-                { vehicleType: "Coach Bus", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "500" },
-                { vehicleType: "Container", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "2000" },
-                { vehicleType: "4-seat Car", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "500" },
-                { vehicleType: "7-seat Car", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "500" },
-                { vehicleType: "Truck", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "1000" },
-                { vehicleType: "Coach Bus", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "500" },
-                { vehicleType: "Container", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "2000" },
-                { vehicleType: "4-seat Car", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "500" },
-                { vehicleType: "7-seat Car", carManufacturer: "#", dimension: "#", loadCapacity: "#", fuelType: "Diesel", vehicleCost: "500" }
+                { No: "#", beginDate: "#", endDate: "#", maintenanceType: "#", description: "#" },
+                { No: "#", beginDate: "#", endDate: "#", maintenanceType: "#", description: "#" },
+                { No: "#", beginDate: "#", endDate: "#", maintenanceType: "#", description: "#" },
+                { No: "#", beginDate: "#", endDate: "#", maintenanceType: "#", description: "#" }
             ]
 
         var random_id = function () {
@@ -37,76 +31,68 @@
         }
 
         //--->create data table > start
-        var tbl = '';
-        tbl += '<table class="table table-hover">'
+        var m_tbl = '';
+        m_tbl += '<table class="table table-hover">'
 
         //--->create table header > start
-        tbl += '<thead>';
-        tbl += '<tr>';
-        tbl += '<th>Vehicle Type</th>';
-        tbl += '<th>Manufacturer</th>';
-        tbl += '<th>Dimension</th>';
-        tbl += '<th>Load Capacity</th>';
-        tbl += '<th>Fuel Type</th>';
-        tbl += '<th>Vehicle Cost</th>';
+        m_tbl += '<thead>';
+        m_tbl += '<tr>';
+        m_tbl += '<th>No</th>';
+        m_tbl += '<th>Begin Date</th>';
+        m_tbl += '<th>End Date</th>';
+        m_tbl += '<th>Maintenance Type</th>';
+        m_tbl += '<th>Description</th>';
 
-        tbl += '</tr>';
-        tbl += '</thead>';
+        m_tbl += '</tr>';
+        m_tbl += '</thead>';
         //--->create table header > end
 
 
         //--->create table body > start
-        tbl += '<tbody>';
+        m_tbl += '<tbody>';
 
         //--->create table body rows > start
         $.each(ajax_data, function (index, val) {
             //you can replace with your database row id
             var row_id = random_id();
             //loop through ajax row data
-            tbl += '<tr row_id="' + row_id + '">';
-            tbl += '<td ><div class="row_data" edit_type="click" col_name="vehicleType">' + val['vehicleType'] + '</div></td>';
-            tbl += '<td ><div class="row_data" edit_type="click" col_name="carManufacturer">' + val['carManufacturer'] + '</div></td>';
-            tbl += '<td ><div class="row_data" edit_type="click" col_name="dimension">' + val['dimension'] + '</div></td>';
-            tbl += '<td ><div class="row_data" edit_type="click" col_name=" loadCapacity">' + val['loadCapacity'] + '</div></td>';
-            tbl += '<td ><div class="row_data" edit_type="click" col_name="fuelType">' + val['fuelType'] + '</div></td>';
-            tbl += '<td ><div class="row_data" edit_type="click" col_name="vehicleCost">' + val['vehicleCost'] + '</div></td>';
-            //--->maintainance options > start
-            tbl += '<td>';
-            tbl += '<span class="btn_his" > <a href="admin_vehicle_history.html" class="btn btn-link btn-m" row_id="' + row_id + '" >Maintenance History</a> </span>';
-            //--->maintainance options > end
+            m_tbl += '<tr row_id="' + row_id + '">';
+            m_tbl += '<td ><div class="row_data" edit_type="click" col_name="No">' + val['No'] + '</div></td>';
+            m_tbl += '<td ><div class="row_data" edit_type="click" col_name="beginDate">' + val['beginDate'] + '</div></td>';
+            m_tbl += '<td ><div class="row_data" edit_type="click" col_name="endDate">' + val['endDate'] + '</div></td>';
+            m_tbl += '<td ><div class="row_data" edit_type="click" col_name="maintenanceType">' + val['maintenanceType'] + '</div></td>';
+            m_tbl += '<td ><div class="row_data" edit_type="click" col_name="description">' + val['description'] + '</div></td>';
 
             //--->edit options > start
-            tbl += '<td>';
-            tbl += '<span class="btn_edit" > <a href="#" class="btn btn-link " row_id="' + row_id + '" >Edit</a> </span>';
+            m_tbl += '<td>';
+            m_tbl += '<span class="btn_edit" > <a href="#" class="btn btn-link " row_id="' + row_id + '" >Edit</a> </span>';
 
             //only show this button if edit button is clicked
-            tbl += '<span class="btn_save"> <a href="#" class="btn btn-link"  row_id="' + row_id + '">Save</a> | </span>';
-            tbl += '<span class="btn_cancel"> <a href="#" class="btn btn-link" row_id="' + row_id + '">Cancel</a> | </span>';
-            tbl += '<span class="btn_delete"> <a href="#" class="btn btn-link" row_id="' + row_id + '">Delete</a> | </span>';
-            tbl += '</td>';
+            m_tbl += '<span class="btn_save"> <a href="#" class="btn btn-link"  row_id="' + row_id + '">Save</a> | </span>';
+            m_tbl += '<span class="btn_delete"> <a href="#" class="btn btn-link" row_id="' + row_id + '">Delete</a> | </span>';
+            m_tbl += '<span class="btn_cancel"> <a href="#" class="btn btn-link" row_id="' + row_id + '">Cancel</a> | </span>';
+            m_tbl += '</td>';
             //--->edit options > end
-            tbl += '</tr>';
+            m_tbl += '</tr>';
 
         });
 
         //--->create table body rows > end
 
-        tbl += '</tbody>';
+        m_tbl += '</tbody>';
         //--->create table body > end
 
-        tbl += '</table>'
+        m_tbl += '</table>'
         //--->create data table > end
 
         //--->add new row
-        tbl += '<div class="text-center">';
-        tbl += '<a href="admin_vehicle_add.html" class="btn btn-primary btn_new_row" onclick="toggleMenu()"> Add New Vehicle </a>';
-        tbl += '<a href="admin_vehicle_modify.html" class="btn"> Modified Infomation </a>';
+        m_tbl += '<div class="text-center">';
 
         //out put table data
-        $(document).find('.tbl_user_data').html(tbl);
+        $(document).find('.maintenance_tbl').html(m_tbl);
         $(document).find('.btn_save').hide();
-        $(document).find('.btn_cancel').hide();
         $(document).find('.btn_delete').hide();
+        $(document).find('.btn_cancel').hide();
 
         //--->save single field data > start
         $(document).on('focusout', '.row_data', function (event) {
@@ -130,35 +116,31 @@
 
             //use the "arr"	object for your ajax call
             $.extend(arr, { row_id: row_id });
-
-            //out put to show
-            $('.post_msg').html('<pre class="bg-success">' + JSON.stringify(arr, null, 2) + '</pre>');
-
         })
         //--->save single field data > end
 
         //--->button > edit > start	
         $(document).on('click', '.btn_edit', function (event) {
             event.preventDefault();
-            var tbl_row = $(this).closest('tr');
+            var m_tbl_row = $(this).closest('tr');
 
-            var row_id = tbl_row.attr('row_id');
+            var row_id = m_tbl_row.attr('row_id');
 
-            tbl_row.find('.btn_save').show();
-            tbl_row.find('.btn_cancel').show();
-            tbl_row.find('.btn_delete').show();
+            m_tbl_row.find('.btn_save').show();
+            m_tbl_row.find('.btn_delete').show();
+            m_tbl_row.find('.btn_cancel').show();
             //hide edit button
-            tbl_row.find('.btn_edit').hide();
+            m_tbl_row.find('.btn_edit').hide();
 
             //make the whole row editable
-            tbl_row.find('.row_data')
+            m_tbl_row.find('.row_data')
                 .attr('contenteditable', 'true')
                 .attr('edit_type', 'button')
                 .addClass('bg-warning')
                 .css('padding', '3px')
 
             //--->add the original entry > start
-            tbl_row.find('.row_data').each(function (index, val) {
+            m_tbl_row.find('.row_data').each(function (index, val) {
                 //this will help in case user decided to click on cancel button
                 $(this).attr('original_entry', $(this).html());
             });
@@ -171,24 +153,25 @@
         $(document).on('click', '.btn_cancel', function (event) {
             event.preventDefault();
 
-            var tbl_row = $(this).closest('tr');
+            var m_tbl_row = $(this).closest('tr');
 
-            var row_id = tbl_row.attr('row_id');
+            var row_id = m_tbl_row.attr('row_id');
 
-            //hide save and cacel buttons
-            tbl_row.find('.btn_save').hide();
-            tbl_row.find('.btn_cancel').hide();
+            //hide save and cancel buttons
+            m_tbl_row.find('.btn_save').hide();
+            m_tbl_row.find('.btn_delete').hide();
+            m_tbl_row.find('.btn_cancel').hide();
 
             //show edit button
-            tbl_row.find('.btn_edit').show();
+            m_tbl_row.find('.btn_edit').show();
 
             //make the whole row editable
-            tbl_row.find('.row_data')
+            m_tbl_row.find('.row_data')
                 .attr('edit_type', 'click')
                 .removeClass('bg-warning')
                 .css('padding', '')
 
-            tbl_row.find('.row_data').each(function (index, val) {
+            m_tbl_row.find('.row_data').each(function (index, val) {
                 $(this).html($(this).attr('original_entry'));
             });
         });
@@ -197,28 +180,29 @@
         //--->save whole row entery > start	
         $(document).on('click', '.btn_save', function (event) {
             event.preventDefault();
-            var tbl_row = $(this).closest('tr');
+            var m_tbl_row = $(this).closest('tr');
 
-            var row_id = tbl_row.attr('row_id');
+            var row_id = m_tbl_row.attr('row_id');
 
 
             //hide save and cacel buttons
-            tbl_row.find('.btn_save').hide();
-            tbl_row.find('.btn_cancel').hide();
+            m_tbl_row.find('.btn_save').hide();
+            m_tbl_row.find('.btn_delete').hide();
+            m_tbl_row.find('.btn_cancel').hide();
 
             //show edit button
-            tbl_row.find('.btn_edit').show();
+            m_tbl_row.find('.btn_edit').show();
 
 
             //make the whole row editable
-            tbl_row.find('.row_data')
+            m_tbl_row.find('.row_data')
                 .attr('edit_type', 'click')
                 .removeClass('bg-warning')
                 .css('padding', '')
 
             //--->get row data > start
             var arr = {};
-            tbl_row.find('.row_data').each(function (index, val) {
+            m_tbl_row.find('.row_data').each(function (index, val) {
                 var col_name = $(this).attr('col_name');
                 var col_val = $(this).html();
                 arr[col_name] = col_val;
@@ -227,8 +211,6 @@
 
             //use the "arr"	object for your ajax call
             $.extend(arr, { row_id: row_id });
-
-            $('.post_msg').html('<pre class="bg-success">' + JSON.stringify(arr, null, 2) + '</pre>');
         });
     }); 
 </script>
@@ -279,23 +261,58 @@
         </nav>
     </div>
 
-    <header class="section__container header__container" id="home">
-        <div class="header__image">
-            <img src="assets/landing_page/img/header.png" alt="header" />
-        </div>
-        <div class="header__content">
-            <h1>Vehicle Monitoring</h1>
-        </div>
-    </header>
-
-    <section id="vehicle-list">
-        <h2 class="section__header" id="vehicle-list">List of vehicle in team</h2>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="tbl_user_data"></div>
+    <section>
+        <div class="maintenance-wrap" id="maintenance-wrap">
+            <div class="table-wrap">
+                <a href="admin_vehicle.html" class="back-to-page">
+                    <p> <i class="ri-corner-up-left-fill"></i> Back to vehicle page</p>
+                </a>
+                <hr>
+                <h2 class="section__header">Maintenance record</h2>
+                <p>Vehicle ID: ######</p>
+                <div class="maintenance_tbl"></div>
+                <hr>
             </div>
         </div>
-        <hr>
+        <div class="add-maintenance-record">
+            <h3 class="sub-header">Add a new maintenance record</h3>
+            <div class="container">
+                <form action="#">
+                    <div class="formfirst">
+                        <div class="details">
+                            <div class="fields">                               
+                                <div class="input-field">
+                                    <label>No:</label>
+                                    <input type="text" placeholder="Enter order">
+                                </div>
+                                <div class="input-field">
+                                    <label>Begin Date:</label>
+                                    <input type="date" placeholder="Enter begin date">
+                                </div>
+                                <div class="input-field">
+                                    <label>End Date:</label>
+                                    <input type="date" placeholder="Enter end date">
+                                </div>
+                                <div class="input-field">
+                                    <label>Maintenance Type:</label>
+                                    <input type="text" placeholder="Enter maintenance type">
+                                </div>
+                                <div class="input-field">
+                                    <label>Description:</label>
+                                    <input type="texts" placeholder="Enter description">
+                                </div>
+                                <div class="input-field2">
+                                    <label>.</label>
+                                    <button class="btn">
+                                        <span>Save</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 
     <footer class="footer" id="contact">

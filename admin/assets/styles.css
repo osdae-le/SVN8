@@ -48,6 +48,7 @@
   border-radius: 10px;
   transition: 0.3s;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .btn:hover {
@@ -324,7 +325,6 @@ nav {
   text-align: center;
 }
 
-
 .footer {
   background-color: var(--primary-color-light);
 }
@@ -542,13 +542,13 @@ nav {
 
 .container {
   position: relative;
-  max-width: 900;
-  width: 100%;
   border-radius: 6px;
   padding: 30px;
   margin: 0 15px;
   background-color: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)0;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
 }
 
 .container form {
@@ -582,13 +582,20 @@ form .fields .input-field {
   margin: 4px 0;
 }
 
+form .fields .input-field2 {
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  margin: 4px 0;
+}
+
 .input-field label {
   font-size: 12px;
   font-weight: 500;
   color: var(--text-dark);
 }
 
-.input-field input {
+.input-field input, .input-field select {
   outline: none;
   font-size: 14px;
   font-weight: 400;
@@ -597,6 +604,7 @@ form .fields .input-field {
   padding: 0 15px;
   height: 42px;
   margin: 8px 0;
+  margin-right: 20px;
 }
 
 .input-field input:is(:focus, :valid) {
@@ -629,3 +637,42 @@ form button:hover {
   align-items: center;
 }
 
+.modified-info {
+  text-align: center;
+}
+
+.maintenance-wrap {
+  margin-top: 20px;
+  text-align: center; /* Center align the content */
+  height: 100vh;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.maintenance_tbl {
+  display: inline-block; /* Make the table display as inline-block */
+  text-align: left; /* Align the table content to the left */
+}
+
+.back-to-page p{
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.btn-save{
+  text-align: center;
+}
+
+.sub-header{
+  text-align: center;
+  font-weight: 600;
+}
+
+.details{
+  text-align: center;
+  justify-content: center;
+}
